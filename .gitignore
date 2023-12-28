@@ -1,0 +1,6 @@
+
+*.json
+roots/build/
+*.elf
+*.gba
+*.pnproj
