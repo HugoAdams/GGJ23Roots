@@ -1,5 +1,5 @@
 #include "puzzle.h"
-#include "include/tonc.h"
+#include "tonc.h"
 #include "debug.h"
 
 CPuzzle::CPuzzle()
@@ -23,7 +23,7 @@ bool CPuzzle::Compare(int _row, std::vector<bool> _data)
             {
                 char ch[40];
                 snprintf(ch,40, "row %i, doesnt match", _row);
-                Debug::Log(ch,40);
+                //Debug::Log(ch,40);
                 return false;
             }
         }

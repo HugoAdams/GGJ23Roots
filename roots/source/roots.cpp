@@ -1,4 +1,4 @@
-#include "include/tonc.h"
+#include "tonc.h"
 #include <string.h>
 #include "rootTiles.h"
 #include "backMaps.h"
@@ -171,10 +171,6 @@ int main()
 
     CGrid grid = CGrid(GRIDSIZE::SMALL, obj_buffer, 7, &clock, &tick);
     Cursor curse = Cursor(cursorOb, 0, &grid);
-
-
-
-
     
     while(true)
     {

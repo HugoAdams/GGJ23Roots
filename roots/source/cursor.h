@@ -25,6 +25,8 @@ private:
     CGrid* m_grid;
     RectInt m_bounds;
 
+    BLOCKTYPE m_heldType;
+
     bool m_done;
 };
 

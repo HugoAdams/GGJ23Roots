@@ -1,5 +1,5 @@
 #include "debug.h"
-#include "include/tonc.h"
+#include <tonc.h>
 
 char Debug::m_word[48];
 

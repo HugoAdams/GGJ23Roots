@@ -1,5 +1,5 @@
 #include "number.h"
-#include "include/tonc.h"
+#include "tonc.h"
 
 CNumber::CNumber(OBJ_ATTR* _attr, int _num, int _x, int _y, int _digit)
 : SpriteObject(_attr, _num), m_digit(_digit), m_pos(_x, _y)

@@ -31,6 +31,8 @@ public:
     ~CGrid();
 
     bool SetBlock(u16 _x, u16 _y, BLOCKTYPE _bt);
+    bool SetBlockHeld(u16 _x, u16 _y, BLOCKTYPE _heldType);
+    BLOCKTYPE GetBlockType(u16 _x, u16 _y);
     void Update();
 
     Vec2Int GetSize();

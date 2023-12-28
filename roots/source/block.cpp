@@ -1,5 +1,5 @@
 #include "block.h"
-#include "include/tonc.h"
+#include <tonc.h>
 
 
 CBlock::CBlock(OBJ_ATTR *_attr, int _num, int _x, int _y)

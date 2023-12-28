@@ -1,7 +1,7 @@
 #ifndef _MATHHELP_H_
 #define _MATHHELP_H_
 
-#include "include/tonc_types.h"
+#include <tonc_types.h>
 
 struct Vec2
 {

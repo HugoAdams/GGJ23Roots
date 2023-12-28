@@ -2,7 +2,7 @@
 #define _CCLOCK_H_
 
 #include "number.h"
-#include "include/tonc_types.h"
+#include <tonc_types.h>
 
 class CClock : public GameObject
 {

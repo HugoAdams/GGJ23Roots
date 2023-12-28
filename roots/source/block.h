@@ -6,6 +6,7 @@
 
 enum BLOCKTYPE
 {
+    bt_NULL = -1,
     bt_EMPTY = 0,
     bt_BLOCK,
     bt_CROSS,

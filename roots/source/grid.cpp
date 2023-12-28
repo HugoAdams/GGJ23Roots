@@ -3,7 +3,7 @@
 #include "number.h"
 #include "debug.h"
 #include <stdio.h>
-#include "include/tonc.h"
+#include "tonc.h"
 #include "lookUpTable.h"
 #include "clock.h"
 #include "tick.h"
@@ -47,27 +47,19 @@ bool CGrid::SetBlock(u16 _x, u16 _y, BLOCKTYPE _setType)
     BLOCKTYPE fin = _setType;
     u16 index = _y * 8 + _x;
     BLOCKTYPE curr = m_vecBlocks[index].GetType();
-    if(curr == bt_BLOCK)
+    if(curr == bt_BLOCK && (_setType == bt_BLOCK || _setType == bt_CROSS))
     {
-        if(_setType == bt_BLOCK || _setType == bt_CROSS)
-        {
-            fin = bt_EMPTY;
-        }
+        fin = bt_EMPTY;
     }
-    else if (curr == bt_CROSS)
+    else if (curr == bt_CROSS && (_setType == bt_CROSS || _setType == bt_BLOCK))
     {
-        if(_setType == bt_CROSS || _setType == bt_BLOCK)
-        {
-            fin = bt_EMPTY;
-        }
+        fin = bt_EMPTY;
     }
-    else if (curr == bt_DOT)
+    else if (curr == bt_DOT && _setType == bt_DOT)
     {
-        if(_setType == bt_DOT)
-        {
-            fin = bt_EMPTY;
-        }
+        fin = bt_EMPTY;    
     }
+
     m_vecBlocks[index].SetType(fin);
 
     if(fin == bt_BLOCK)
@@ -77,6 +69,30 @@ bool CGrid::SetBlock(u16 _x, u16 _y, BLOCKTYPE _setType)
         return win;
     }
     return false;
+}
+
+bool CGrid::SetBlockHeld(u16 _x, u16 _y, BLOCKTYPE _heldType)
+{
+    u16 index = _y * 8 + _x;
+    BLOCKTYPE curr = m_vecBlocks[index].GetType();
+    
+    if ((curr == bt_CROSS && (_heldType == bt_BLOCK || _heldType == bt_DOT)) 
+    || (curr == bt_BLOCK && (_heldType == bt_CROSS || _heldType == bt_DOT)))
+    {
+        return false;
+    }
+    m_vecBlocks[index].SetType(_heldType);
+
+    if(_heldType == bt_BLOCK)
+    {
+        return CheckWin();
+    }
+    return false;
+}
+
+BLOCKTYPE CGrid::GetBlockType(u16 _x, u16 _y)
+{
+    return m_vecBlocks[_y * 8 + _x].GetType();
 }
 
 void CGrid::Update()
