@@ -13,7 +13,6 @@ CPuzzle::~CPuzzle()
 
 bool CPuzzle::Compare(int _row, std::vector<bool> _data)
 {
-    int dsize = _data.size();
     if(_row < m_size.y && (int)_data.size() == m_size.x)
     {
         u16 start = _row * m_size.x;
@@ -23,7 +22,7 @@ bool CPuzzle::Compare(int _row, std::vector<bool> _data)
             {
                 char ch[40];
                 snprintf(ch,40, "row %i, doesnt match", _row);
-                //Debug::Log(ch,40);
+                Debug::Log(ch,40);
                 return false;
             }
         }

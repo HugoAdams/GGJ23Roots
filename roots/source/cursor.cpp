@@ -1,7 +1,6 @@
 #include "cursor.h"
 #include <tonc.h>
 #include "gInfo.h"
-#include "debug.h"
 
 Cursor::Cursor(OBJ_ATTR *_attr, int _num, CGrid* _grid)
 : SpriteObject(_attr, _num), m_grid(_grid)
@@ -112,10 +111,6 @@ void Cursor::Update()
         {
             m_heldType = (bt == bt_BLOCK || bt == bt_CROSS) ? bt_EMPTY : bt_CROSS;
         }
-
-        char ch[40];
-        snprintf(ch,40, "held type is %i", m_heldType);
-        Debug::Log(ch,40);
     }
     
 
