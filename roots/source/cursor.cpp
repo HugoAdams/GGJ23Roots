@@ -129,7 +129,12 @@ void Cursor::Update()
     }
     else if(AHeld || BHeld)
     {
-        m_grid->SetBlockHeld(m_index.x, m_index.y, m_heldType);
+        if(m_grid->SetBlockHeld(m_index.x, m_index.y, m_heldType))
+        {
+            SetPosition(0, 0);//end game
+            m_done = true;
+            return;
+        }
     }
 
     m_frame++;
